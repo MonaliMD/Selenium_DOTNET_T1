@@ -5,4 +5,27 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Selenium.WebDriver" />
+    <None Remove="Selenium.Support" />
+    <None Remove="Microsoft.NETCore.App" />
+    <None Remove="Selenium.WebDriver.ChromeDriver" />
+    <None Remove="Pages\" />
+    <None Remove="Tests\" />
+    <None Remove="Utilities\" />
+    <None Remove="NUnit" />
+    <None Remove="NUnit3TestAdapter" />
+    <None Remove="Selenium.Chrome.WebDriver" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Selenium.Support" Version="3.141.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="94.0.4606.6100" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="85.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\" />
+    <Folder Include="Tests\" />
+    <Folder Include="Utilities\" />
+  </ItemGroup>
 </Project>
