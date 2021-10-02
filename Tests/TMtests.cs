@@ -11,14 +11,14 @@ namespace Selenium_DOTNET_T1
             //open chrome browser
             IWebDriver driver = new ChromeDriver();
 
+            //Login Actions
+            LoginPage loginPageObj = new LoginPage();
+            loginPageObj.loginActions(driver);
 
             //Home page actions
             HomePage homepageObj = new HomePage();
             homepageObj.homePageActions(driver);
 
-            //Login Actions
-            LoginPage loginPageObj = new LoginPage();
-            loginPageObj.loginActions(driver);
           
             //Time and Material page create actions
             TMPage tmPageObj = new TMPage();
