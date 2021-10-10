@@ -6,17 +6,22 @@ using Selenium_DOTNET_T1.Utilities;
 namespace Selenium_DOTNET_T1
 {
     [TestFixture]
+    //[Parallelizable]
     public class TMtests : CommonDriver
     {
-        [Test]
+        [Test , Order(1), Description ("Check if user able to create new time & material with valid data")]
         public void CreateTMTest()
         {
+            // Home page object initialization and definition
+            HomePage homePageObj = new HomePage();
+            homePageObj.homePageActions(driver);
+
             //Time and Material page create actions
             TMPage tmPageObj = new TMPage();
             tmPageObj.createTM(driver);
         }
 
-        [Test]
+        [Test, Order(2), Description ("Check user able to edit Time or Material with valid data")]
         public void EditTMTest()
         {
             //Time and Material page edit actions
@@ -24,7 +29,7 @@ namespace Selenium_DOTNET_T1
             tmPageObj.editTM(driver);
         }
 
-        [Test]
+        [Test, Order(3), Description ("Check user able to delete time or material records")]
         public void DeleteTMTest()
         {
             //Time and Material page delete actions

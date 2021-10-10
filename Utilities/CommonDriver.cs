@@ -8,15 +8,14 @@ namespace Selenium_DOTNET_T1.Utilities
     public class CommonDriver
     {
         public IWebDriver driver;
-        //open chrome browser
+        
         
         [OneTimeSetUp]
         public void LoginActions()
         {
+            //open chrome browser
             driver = new ChromeDriver();
-            //Home page actions
-            HomePage homepageObj = new HomePage();
-            homepageObj.homePageActions(driver);
+
 
             //Login Actions
             LoginPage loginPageObj = new LoginPage();

@@ -6,11 +6,7 @@ namespace Selenium_DOTNET_T1.Pages
 {
     public class TMPage
     {
-        //private object driver;
-
-
-        
-
+  
         public void createTM(IWebDriver driver)
         {
             // Find code text box and enter the code number
