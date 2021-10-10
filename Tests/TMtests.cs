@@ -1,33 +1,34 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿
+using NUnit.Framework;
 using Selenium_DOTNET_T1.Pages;
+using Selenium_DOTNET_T1.Utilities;
 
 namespace Selenium_DOTNET_T1
 {
-    class Program
+    [TestFixture]
+    public class TMtests : CommonDriver
     {
-        static void Main(string[] args)
+        [Test]
+        public void CreateTMTest()
         {
-            //open chrome browser
-            IWebDriver driver = new ChromeDriver();
-
-
-            //Home page actions
-            HomePage homepageObj = new HomePage();
-            homepageObj.homePageActions(driver);
-
-            //Login Actions
-            LoginPage loginPageObj = new LoginPage();
-            loginPageObj.loginActions(driver);
-          
             //Time and Material page create actions
             TMPage tmPageObj = new TMPage();
             tmPageObj.createTM(driver);
+        }
 
+        [Test]
+        public void EditTMTest()
+        {
             //Time and Material page edit actions
+            TMPage tmPageObj = new TMPage();
             tmPageObj.editTM(driver);
+        }
 
+        [Test]
+        public void DeleteTMTest()
+        {
             //Time and Material page delete actions
+            TMPage tmPageObj = new TMPage();
             tmPageObj.deleteTM(driver);
         }
     }
