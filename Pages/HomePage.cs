@@ -20,15 +20,7 @@ namespace Selenium_DOTNET_T1.Pages
             selectTM.Click();
 
             Thread.Sleep(2000);
-            // Select create new button and click on it
-            IWebElement createNewButton = driver.FindElement(By.XPath("//*[@id='container']/p/a"));
-            createNewButton.Click();
-
-            // Find type code text box and slect "Time" on the list
-            IWebElement selectDropDown = driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[1]/div/span[1]/span/span[2]"));
-
-            IWebElement selectTime = driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[1]/div/span[1]/span/span[1]"));
-            selectTime.Click();
+           
         }
     
     }

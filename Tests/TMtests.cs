@@ -15,7 +15,7 @@ namespace Selenium_DOTNET_T1
             // Home page object initialization and definition
             HomePage homePageObj = new HomePage();
             homePageObj.homePageActions(driver);
-
+                                                                
             //Time and Material page create actions
             TMPage tmPageObj = new TMPage();
             tmPageObj.createTM(driver);
@@ -24,6 +24,10 @@ namespace Selenium_DOTNET_T1
         [Test, Order(2), Description ("Check user able to edit Time or Material with valid data")]
         public void EditTMTest()
         {
+            // Home page object initialization and definition
+            HomePage homePageObj = new HomePage();
+            homePageObj.homePageActions(driver);
+
             //Time and Material page edit actions
             TMPage tmPageObj = new TMPage();
             tmPageObj.editTM(driver);
@@ -32,6 +36,10 @@ namespace Selenium_DOTNET_T1
         [Test, Order(3), Description ("Check user able to delete time or material records")]
         public void DeleteTMTest()
         {
+            // Home page object initialization and definition
+            HomePage homePageObj = new HomePage();
+            homePageObj.homePageActions(driver);
+
             //Time and Material page delete actions
             TMPage tmPageObj = new TMPage();
             tmPageObj.deleteTM(driver);
