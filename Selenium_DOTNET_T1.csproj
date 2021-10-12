@@ -29,8 +29,6 @@
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.22" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="SpectDefinition\" />
-    <Folder Include="Spectflow\" />
     <Folder Include="Pages\" />
     <Folder Include="Tests\" />
   </ItemGroup>

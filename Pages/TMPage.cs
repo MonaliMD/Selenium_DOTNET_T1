@@ -50,16 +50,16 @@ namespace Selenium_DOTNET_T1.Pages
             //IWebElement codeCheck = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
 
             //Assertion
-            IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-            IWebElement newSelectTime = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
-            IWebElement newDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
-            IWebElement newPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+            //IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            //IWebElement newSelectTime = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
+            //IWebElement newDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+            //IWebElement newPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
 
             //Assertions
-            Assert.That(newCode.Text == "September2021_M", "Actual Code and expected newCode do not match");
-            Assert.That(newSelectTime.Text == "T", "Actual SelectedTime and expected SelectedTime do not match");
-            Assert.That(newDescription.Text == "M_Description", "Actual Description and expected l newDescription do not match");
-            Assert.That(newPrice.Text == "$100.00", "Actual Price and expected newPrice do not match");
+            //Assert.That(newCode.Text == "September2021_M", "Actual Code and expected newCode do not match");
+            //Assert.That(newSelectTime.Text == "T", "Actual SelectedTime and expected SelectedTime do not match");
+            //Assert.That(newDescription.Text == "M_Description", "Actual Description and expected l newDescription do not match");
+            //Assert.That(newPrice.Text == "$100.00", "Actual Price and expected newPrice do not match");
 
             //Check if saved suucessfully
             //if (codeCheck.Text == "September2021_M")
@@ -70,7 +70,29 @@ namespace Selenium_DOTNET_T1.Pages
             //{
             //    Console.WriteLine("Not saved, test failed");
             //}
+        }
+        //Best practice for asserting
+        public string getCode(IWebDriver driver)
+        {
+            IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            return newCode.Text;
+        }
+        public string getSelectTime(IWebDriver driver)
+        {
+            IWebElement newSelectTime = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
+            return newSelectTime.Text;
+        }
 
+        public string getDescription(IWebDriver driver)
+        {
+            IWebElement newDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+            return newDescription.Text;
+
+        }
+        public string getPrice(IWebDriver driver)
+        {
+            IWebElement newPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+            return newPrice.Text;
         }
 
         public void editTM(IWebDriver driver)
