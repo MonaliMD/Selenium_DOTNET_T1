@@ -30,7 +30,7 @@ namespace Selenium_DOTNET_T1
 
             //Time and Material page edit actions
             TMPage tmPageObj = new TMPage();
-            tmPageObj.editTM(driver);
+            tmPageObj.editTM(driver, "dummy", "dummy");
         }
 
         [Test, Order(3), Description ("Check user able to delete time or material records")]

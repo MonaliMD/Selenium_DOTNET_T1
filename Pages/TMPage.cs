@@ -95,13 +95,13 @@ namespace Selenium_DOTNET_T1.Pages
             return newPrice.Text;
         }
 
-        public void editTM(IWebDriver driver)
+        public void editTM(IWebDriver driver, string p0, string p1)
         {
             // Go to the last page where new record created will be
             IWebElement selectLastPage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
             selectLastPage.Click();
-            // Find final record created
 
+            // Find final record created
             IWebElement findRecordCreated = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
 
             if (findRecordCreated.Text == "September2021_M")
@@ -127,14 +127,14 @@ namespace Selenium_DOTNET_T1.Pages
                 // Find the code text box clear and edit the code
                 IWebElement addCode2 = driver.FindElement(By.Id("Code"));
                 addCode2.Clear();
-                addCode2.SendKeys("September2021_M_Edit");
+                addCode2.SendKeys(p0);
 
                 //IWebElement addCodeEdit = driver.FindElement(By.Id("Code"));
 
                 // Click on "Description" from Textbox and set the description
                 IWebElement descriptionTextBox1 = driver.FindElement(By.Id("Description"));
                 descriptionTextBox1.Clear();
-                descriptionTextBox1.SendKeys("Automated Script1 is changed");
+                descriptionTextBox1.SendKeys(p1);
                 Thread.Sleep(2000);
 
                 // Click on "Price per unit" textbox and clear the price
@@ -166,16 +166,16 @@ namespace Selenium_DOTNET_T1.Pages
 
 
                 // Assertion
-                IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-                IWebElement newTypeCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
-                IWebElement newDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
-                IWebElement newPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+               // IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+                //IWebElement newTypeCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
+                //IWebElement newDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+                //IWebElement newPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
 
                 // Assertion
-                Assert.That(newCode.Text == "September2021_M_Edit", "Actual Code and expected code do not match.");
-                Assert.That(newTypeCode.Text == "M", "Actual TypeCode and expected tyecode do not match.");
-                Assert.That(newDescription.Text == "Automated Script1 is changed", "Actual Description and expected description do not match.");
-                Assert.That(newPrice.Text == "$170.00", "Actual Price and expected price do not match.");
+                //Assert.That(newCode.Text == "September2021_M_Edit", "Actual Code and expected code do not match.");
+                //Assert.That(newTypeCode.Text == "M", "Actual TypeCode and expected tyecode do not match.");
+                //Assert.That(newDescription.Text == "Automated Script1 is changed", "Actual Description and expected description do not match.");
+                //Assert.That(newPrice.Text == "$170.00", "Actual Price and expected price do not match.");
                 // Find code after edited
                 //IWebElement codeCheck1 = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
 
@@ -184,18 +184,34 @@ namespace Selenium_DOTNET_T1.Pages
             { 
                 Assert.Fail("Record to be edited hasn't been found. Record not edited.");
             }
-            //Check if edit suucessfully
-            //if (codeCheck1.Text == "September2021_M_Edit")
-            //{
-            //    Console.WriteLine("Edit suceesfully, test passed");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Not edited, test failed");
-            //}
+
+           
+
 
             Thread.Sleep(2000);
         }
+
+        public string editCode(IWebDriver driver)
+        {
+            IWebElement editedNewCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            return editedNewCode.Text;
+        }
+        public string editTypeCode(IWebDriver driver)
+        {
+            IWebElement editedNewTypeCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            return editedNewTypeCode.Text;
+        }
+        public string editDescription(IWebDriver driver)
+        {
+            IWebElement editedNewDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            return editedNewDescription.Text;
+        }
+        public string editPrice(IWebDriver driver)
+        {
+            IWebElement editedNewPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            return editedNewPrice.Text;
+        }
+
         public void deleteTM(IWebDriver driver)
         {
             //Go to last page

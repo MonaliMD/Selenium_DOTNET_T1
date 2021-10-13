@@ -47,7 +47,33 @@ namespace Selenium_DOTNET_T1.SpecDefinition
             string newDescription = tmPageOjb.getDescription(driver);
             string getPrice = tmPageOjb.getPrice(driver);
 
-            Assert.That(newCode == "eptember2021_M", "Code did not match");
+            Assert.That(newCode == "September2021_M", "Code did not match");
+            Assert.That(newSelectTime == "T", "SelectTime did not match");
+            Assert.That(newDescription == "M_Description", "Description did not match");
+            Assert.That(getPrice == "$100.00", "Price did not match");
         }
+
+        [When(@"I edit '(.*)' , (.*)' time and material record")]
+        public void WhenIEditTimeAndMaterialRecord(string p0, string p1)
+        {
+            tmPageOjb.editTM(driver, p0, p1);
+        }                   
+
+
+       
+
+        
+
+        [Then(@"the record should be edited successfully '(.*)'")]
+        public void ThenTheRecordShouldBeEditedSuccessfully(string p0)
+        {
+            string editedNewCode = tmPageOjb.editCode(driver);
+            //string editDescription = tmPageOjb.editDescription(driver);
+
+            Assert.That(editedNewCode == p0, "EditedCode did not match");
+            //Assert.That(editDescription == p0, p1, "EditedDescrption did not match");
+        }
+
+
     }
 }
