@@ -60,10 +60,6 @@ namespace Selenium_DOTNET_T1.SpecDefinition
         }                   
 
 
-       
-
-        
-
         [Then(@"the record should be edited successfully '(.*)'")]
         public void ThenTheRecordShouldBeEditedSuccessfully(string p0)
         {
@@ -73,6 +69,30 @@ namespace Selenium_DOTNET_T1.SpecDefinition
             Assert.That(editedNewCode == p0, "EditedCode did not match");
             //Assert.That(editDescription == p0, p1, "EditedDescrption did not match");
         }
+
+        
+        [When(@"I delete time and material record")]
+        public void WhenIDeleteTimeAndMaterialRecord()
+        {
+            tmPageOjb.deleteTM(driver);
+        }
+
+        [Then(@"the record should be deleted successfully")]
+        public void ThenTheRecordShouldBeDeletedSuccessfully()
+        {
+            string lastRawCode = tmPageOjb.getDeleteCode(driver);
+            string lastRawSelectTime = tmPageOjb.getDeleteTypeCode(driver);
+            string lastRawDescription = tmPageOjb.getDeleteDescription(driver);
+            string lastRawPrice = tmPageOjb.getDeletePrice(driver);
+
+            Assert.That(lastRawCode != "M_Edit_1", "Code did not match");
+            Assert.That(lastRawSelectTime != "M", "SelectTime did not match");
+            Assert.That(lastRawDescription != "M_changed_1", "Description did not match");
+            Assert.That(lastRawPrice != "$170.00", "Price did not match");
+        }
+
+
+
 
 
     }

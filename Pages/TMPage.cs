@@ -243,16 +243,16 @@ namespace Selenium_DOTNET_T1.Pages
             selectLastPage1.Click();
 
              // Assertion
-             IWebElement editedCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-             IWebElement editedTypeCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
-             IWebElement editedDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+             //IWebElement editedCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+             //IWebElement editedTypeCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
+             //IWebElement editedDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
              IWebElement editedPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
 
                 // Assertion
-             Assert.That(editedCode.Text != "September2021_M_Edit", "Code record hasn't been deleted.");
-             Assert.That(editedTypeCode.Text != "M", "TypeCode record hasn't been deleted..");
-             Assert.That(editedDescription.Text != "Automated Script1 is changed", "Description record hasn't been deleted.");
-             Assert.That(editedPrice.Text != "$170.00", "Price record hasn't been deleted..");
+            // Assert.That(editedCode.Text != "September2021_M_Edit", "Code record hasn't been deleted.");
+             //Assert.That(editedTypeCode.Text != "M", "TypeCode record hasn't been deleted..");
+             //Assert.That(editedDescription.Text != "Automated Script1 is changed", "Description record hasn't been deleted.");
+             //Assert.That(editedPrice.Text != "$170.00", "Price record hasn't been deleted..");
 
 
 
@@ -265,15 +265,31 @@ namespace Selenium_DOTNET_T1.Pages
             {
                 Assert.Fail("Record to be deleted hasn't been found. Record not deleted.");
             }
-            //Check if delete successfully
-            //if (codeCheck2.Text != "September2021_M_Edit")
-            //{
-            //    Console.WriteLine("Delete suceesfully, test passed");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Not Deleted, test failed");
-            //}
+           
+        }
+        public string getDeleteCode(IWebDriver driver)
+        {
+            IWebElement editedCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+
+            return editedCode.Text;
+        }
+        public string getDeleteTypeCode(IWebDriver driver)
+        {
+            IWebElement editedTypeCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
+
+            return editedTypeCode.Text;
+        }
+        public string getDeleteDescription(IWebDriver driver)
+        {
+            IWebElement editedDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+
+            return editedDescription.Text;
+        }
+        public string getDeletePrice(IWebDriver driver)
+        {
+            IWebElement editedPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+
+            return editedPrice.Text;
         }
     }
 }
