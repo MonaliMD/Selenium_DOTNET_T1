@@ -10,7 +10,7 @@ namespace Selenium_DOTNET_T1.SpecDefinition
     public class TMFeatureSteps : CommonDriver
     {
 
-        // Page object initialization
+        //Object initialization
         LoginPage loginPageObj = new LoginPage();
         HomePage homePageOjb = new HomePage();
         TMPage tmPageOjb = new TMPage();
